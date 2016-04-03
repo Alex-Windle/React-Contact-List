@@ -1,32 +1,42 @@
-export default [
-	{ first: "Chete",
-	last: "B.",
-	age: 25,
-	city: "Luanda",
-	country: "Angola",
-	phone: 123-456-7891
-	},
+//Contact 
+	// *name
+	// *email
+	// *phone
+	// *location
 
-	{first: "Nicole",
-	last: "G.",
-	age: 29,
-	city: "Manila",
-	country: "Philippines",
-	},
 
-	{first: "Loraine",
-	last: "P.",
-	age: 34,
-	city: "Beirut",
-	country: "Lebanon",
-	phone: 123-456-7891
-	},
-
-	{first: "Lucy",
-	last: "M.",
-	age: 34,
-	city: "Cairo",
-	country: "Egyptd",
-	phone: 123-456-7891
+let chete=	{name: "Chete Bay",
+	email: "cbeybey@gmail.com",
+	phone: "123-537-7891", 
+	location: "Luanda, Angola",
+	photo: "./images/chete.jpg"
 	}
+
+let gamal=	{name: "Gamal Aziz",
+	email: "abdelaziz@yahoo.co.uk",
+	phone: "123-999-7891", 
+	location: "Cairo, Egypt",
+	photo: "./images/gamal.jpg"
+	}
+
+let loraine= {name: "Loraine Fairweather",
+	email: "lplayfair@earthlink.com",
+	phone: "123-254-7891",
+	location: "Beirut, Lebanon",
+	photo: "./images/loraine.jpg"
+	}
+
+let sherif= {name: "Sherif Sami",
+	email: "ssami@gmail.com",
+	phone: "123-911-7891",
+	location: "Cairo, Egypt",
+	photo: "./images/sherif.jpg"
+	}
+
+
+export default [
+	chete,
+	gamal, 
+	loraine,
+	sherif
 ]
