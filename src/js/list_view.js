@@ -31,7 +31,7 @@ export default class ListView extends Component {
 		return (
 		<div className="list-view">
 			<div className="title">
-				<h3>My Contact List</h3>
+				<h2>My Contact List</h2>
 			</div>
 			<div className="fullContactList">
 				<ul>

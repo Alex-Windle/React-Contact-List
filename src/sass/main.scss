@@ -25,12 +25,13 @@ div, ul, li{
 
 .list-view{
 	border: 1.5px solid $gray-border;
+	height: 500px;
 }
 
 .title{
 	border-bottom: 2px solid $header-green-border;
 	background-color: $header-green;
-	h3{
+	h2{
 		padding: 15px 0 15px 4px;
 		margin-left: 15px;
 		font-weight: lighter;
@@ -44,9 +45,7 @@ div, ul, li{
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-		&:not(:last-child){
-		border-bottom: 1.5px solid $gray-border;
-		}
+	border-bottom: 1.5px solid $gray-border;
 		p{
 		font-size: 14px;
 		letter-spacing: .25px;
@@ -58,29 +57,44 @@ div, ul, li{
 }
 
 .single-view{
-
+	border: 1.5px solid $gray-border;
+	height: 500px;
 }
 
 .avatar{
 	border-bottom: 2px solid $contact-header-border;
 	background-color: $contact-header;
-	height: 150px;
+	height: 200px;
 	position: relative;
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
 	img{
-		border-radius: 50%;
+	border-radius: 50%;
 	}
 	i{
 	position: absolute;
-	top: 15px;
-	left: 15px;
+	height: 20px;
+	top: 25px;
+	left: 25px;
 	}
 }
 
 .info ul li{
-
+	padding: 15px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	border-bottom: 1.5px solid $gray-border;
+	font-size: 14px;
+	letter-spacing: .25px;
+		img{
+		border-radius: 50%;
+		margin-right: 15px;
+		}
+		i{
+		margin-right: 9px;
+		}
 }
 
