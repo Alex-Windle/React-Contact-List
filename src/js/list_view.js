@@ -32,9 +32,9 @@ export default class ListView extends Component {
 		let { users, onUserSelect, onNew } = this.props;
 		return (
 		<div className="list-view">
-			<button onClick={ onNew }>Add New Contact</button>
 			<div className="title">
 				<h2>My Contact List</h2>
+				<button onClick={ onNew }>Add New Contact</button>
 			</div>
 			<div className="fullContactList">
 				<ul>

@@ -31,12 +31,24 @@ div, ul, li{
 .title{
 	border-bottom: 2px solid $header-green-border;
 	background-color: $header-green;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
 	h2{
 		padding: 15px 0 15px 4px;
 		margin-left: 15px;
 		font-weight: lighter;
 		letter-spacing: 1px;
 		color: white;
+	}
+	button{
+		height: 65px;
+		border: 1px solid $header-green-border;
+		// border-radius: 5%;
+		background-color: white;
+		padding: 0 20px 0 20px;
+		// margin-right: 15px;
 	}
 }
 
@@ -56,7 +68,7 @@ div, ul, li{
 		}
 }
 
-.single-view{
+.single-view, .add-user{
 	border: 1.5px solid $gray-border;
 	height: 500px;
 }
@@ -97,4 +109,3 @@ div, ul, li{
 		margin-right: 9px;
 		}
 }
-

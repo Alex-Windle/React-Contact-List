@@ -14,7 +14,9 @@ this.props.onAdd(formData);
 		let { onAdd } = this.props;
 		return (
 			<div className="add-user">
-			<h2>Add New User</h2>
+			<div className="title">
+				<h2>Add New User</h2>
+			</div>
 			<SimpleSerialForm onData={ ::this.dataHandler }>
 				<div>
 				<label>
