@@ -109,3 +109,29 @@ div, ul, li{
 		margin-right: 9px;
 		}
 }
+
+.label{
+	padding: 15px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	border-bottom: 1.5px solid $gray-border;
+	font-size: 14px;
+	letter-spacing: .25px;
+	input{
+		height: 25px;
+		font-size: 16px;
+		margin-left: 10px;
+	}
+}
+
+.add-user button{
+	color: white;
+	font-size: 15px;
+	font-family: Arial;
+	height: 45px;
+	background-color: $header-green;
+	border: 1px solid $header-green-border;
+	padding: 10px;
+
+	}
