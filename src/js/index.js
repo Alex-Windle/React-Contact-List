@@ -4,20 +4,26 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import SingleView from './single_view';
 import ListView from './list_view';
+import AddUser from './add_user';
 
-var fullListPage = () =>{ ReactDOM.render(
-		<ListView users={ data } onUserSelect= { singleUserPage }/>
-		, document.querySelector('.app')
+// var fullListPage = () =>{ ReactDOM.render(
+// 		<ListView users={ data } onUserSelect= { singleUserPage }/>
+// 		, document.querySelector('.app')
+// 	);
+// };
+
+// var singleUserPage = (singlePerson)=>{	ReactDOM.render(
+// 		<SingleView user={ singlePerson } onBack= { fullListPage }/>
+// 		, document.querySelector('.app')
+// 	);
+// }
+
+// fullListPage();
+
+ReactDOM.render(
+	<AddUser />
+	, document.querySelector('.app')
 	);
-};
-
-var singleUserPage = (singlePerson)=>{	ReactDOM.render(
-		<SingleView user={ singlePerson } onBack= { fullListPage }/>
-		, document.querySelector('.app')
-	);
-}
-
-fullListPage();
 
 // singleUserPage(tempUser);
 // fullListPage();
