@@ -6,11 +6,16 @@ export default class AddUser extends Component {
 		onAdd: PropTypes.func.isRequired
 		}
 
+dataHandler(formData) {
+this.props.onAdd(formData);
+}
+
 	render () {
+		let { onAdd } = this.props;
 		return (
 			<div className="add-user">
 			<h2>Add New User</h2>
-			<SimpleSerialForm>
+			<SimpleSerialForm onData={ ::this.dataHandler }>
 				<div>
 				<label>
 					Name:
@@ -28,23 +33,24 @@ export default class AddUser extends Component {
 				<div>
 				<label>
 					Phone:
-					<input type="text" name="name"/>
+					<input type="text" name="phone"/>
 				</label>
 				</div>
 
 				<div>
 				<label>
 					Location:
-					<input type="text" name="name"/>
+					<input type="text" name="location"/>
 				</label>
 				</div>
 
 				<div>
 				<label>
-					Photo:
-					<input type="text" name="name"/>
+					Photo (URL):
+					<input type="text" name="photo"/>
 				</label>
 				</div>
+			<button>Add New User</button>
 			</SimpleSerialForm>
 			</div>
 			)

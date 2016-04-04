@@ -6,25 +6,35 @@ import SingleView from './single_view';
 import ListView from './list_view';
 import AddUser from './add_user';
 
-// var fullListPage = () =>{ ReactDOM.render(
-// 		<ListView users={ data } onUserSelect= { singleUserPage }/>
-// 		, document.querySelector('.app')
-// 	);
-// };
-
-// var singleUserPage = (singlePerson)=>{	ReactDOM.render(
-// 		<SingleView user={ singlePerson } onBack= { fullListPage }/>
-// 		, document.querySelector('.app')
-// 	);
-// }
-
-// fullListPage();
-
-ReactDOM.render(
-	<AddUser />
-	, document.querySelector('.app')
+//////////////// Contact List (2pg)
+var fullListPage = () =>{ ReactDOM.render(
+		<ListView users={ data } onUserSelect= { singleUserPage } onNew= { renderForm }/>
+		, document.querySelector('.app')
 	);
+};
 
+var singleUserPage = (singlePerson)=>{	ReactDOM.render(
+		<SingleView user={ singlePerson } onBack= { fullListPage }/>
+		, document.querySelector('.app')
+	);
+}
+
+////////////// Form view
+function addItemAndRenderList(newItem) {
+	data.push(newItem);
+	fullListPage();
+}
+
+function renderForm(){
+	ReactDOM.render(
+	<AddUser onAdd={ addItemAndRenderList }/>
+	,document.querySelector('.app')
+	) 
+}
+
+fullListPage();
+
+////////////// Scratch
 // singleUserPage(tempUser);
 // fullListPage();
 

@@ -13,7 +13,9 @@ export default class ListView extends Component {
 		photo: PropTypes.string.isRequired
 	})).isRequired,
 
-	onUserSelect: PropTypes.func.isRequired
+	onUserSelect: PropTypes.func.isRequired,
+
+	onNew: PropTypes.func.isRequired
 	};
 
 	personListItem(person){
@@ -27,9 +29,10 @@ export default class ListView extends Component {
 	}
 
 	render() {
-		let { users, onUserSelect } = this.props;
+		let { users, onUserSelect, onNew } = this.props;
 		return (
 		<div className="list-view">
+			<button onClick={ onNew }>Add New Contact</button>
 			<div className="title">
 				<h2>My Contact List</h2>
 			</div>
