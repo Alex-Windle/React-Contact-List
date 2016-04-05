@@ -1,14 +1,25 @@
 import React, { Component, PropTypes } from 'react';
 import SimpleSerialForm from 'react-simple-serial-form';
+import Dropzone from 'react-dropzone';
 
 export default class AddUser extends Component {
 	static propTypes = {
 		onAdd: PropTypes.func.isRequired
 		}
+	constructor(props){
+		super(props);
+		this.state = {
+      	preview: 'https://bytesizemoments.com/wp-content/uploads/2014/04/placeholder.png'
+    	}
+	}
 
 dataHandler(formData) {
 this.props.onAdd(formData);
 }
+
+dropHandler([file]) {
+    this.setState({preview: file.preview});
+  }
 
 	render () {
 		let { onAdd } = this.props;
@@ -18,6 +29,12 @@ this.props.onAdd(formData);
 				<h2>Add Contact</h2>
 			</div>
 			<SimpleSerialForm onData={ ::this.dataHandler }>
+				
+				<Dropzone onDrop= { ::this.dropHandler } >
+					<img src={ this.state.preview }/>
+					<input type="hidden" name="photo" value={ this.state.preview }/>
+				</Dropzone>
+				
 				<div className="label">
 				<label>
 					Name:
@@ -47,10 +64,7 @@ this.props.onAdd(formData);
 				</div>
 
 				<div className="label">
-				<label>
-					Photo:
-					<input type="text" name="photo"/>
-				</label>
+				
 				</div>
 
 				<div className="btn">
