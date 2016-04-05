@@ -65,13 +65,10 @@ dropHandler([file]) {
 				</label>
 				</div>
 
-				<div className="label">
-				
-				</div>
-
 				<div className="btn">
 					<button>Done</button>
 				</div>
+
 			</SimpleSerialForm>
 			</div>
 			)
