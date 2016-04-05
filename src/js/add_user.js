@@ -15,7 +15,7 @@ this.props.onAdd(formData);
 		return (
 			<div className="add-user">
 			<div className="title">
-			<h2>Add Contact</h2>
+				<h2>Add Contact</h2>
 			</div>
 			<SimpleSerialForm onData={ ::this.dataHandler }>
 				<div className="label">
@@ -32,14 +32,14 @@ this.props.onAdd(formData);
 				</label>
 				</div>
 
-				<div className="label">
+				<div className="label" id="phone">
 				<label>
 					Phone:
 					<input type="text" name="phone"/>
 				</label>
 				</div>
 
-				<div className="label">
+				<div className="label" id="location">
 				<label>
 					Location:
 					<input type="text" name="location"/>
@@ -48,7 +48,7 @@ this.props.onAdd(formData);
 
 				<div className="label">
 				<label>
-					Photo (URL):
+					Photo:
 					<input type="text" name="photo"/>
 				</label>
 				</div>
