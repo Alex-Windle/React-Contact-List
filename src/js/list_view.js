@@ -34,7 +34,7 @@ export default class ListView extends Component {
 		<div className="list-view">
 			<div className="title">
 				<h2>My Contact List</h2>
-				<button onClick={ onNew }>Add New Contact</button>
+				<button onClick={ onNew }>+ Add</button>
 			</div>
 			<div className="fullContactList">
 				<ul>
