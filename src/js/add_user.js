@@ -30,10 +30,12 @@ dropHandler([file]) {
 			</div>
 			<SimpleSerialForm onData={ ::this.dataHandler }>
 				
-				<Dropzone onDrop= { ::this.dropHandler } >
-					<img src={ this.state.preview }/>
-					<input type="hidden" name="photo" value={ this.state.preview }/>
-				</Dropzone>
+				<div className="dropzone-box">
+					<Dropzone onDrop= { ::this.dropHandler } >
+						<img src={ this.state.preview } height="195px" width="195px"/>
+						<input type="hidden" name="photo" value={ this.state.preview }/>
+					</Dropzone>
+				</div>
 				
 				<div className="label">
 				<label>

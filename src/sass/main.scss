@@ -164,4 +164,10 @@ div, ul, li{
 	border-radius: 3px;
 	padding: 10px;
 	}
+	.dropzone-box{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	margin-top: 15px;
+	}
 }
