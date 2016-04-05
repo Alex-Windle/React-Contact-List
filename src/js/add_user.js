@@ -52,7 +52,10 @@ this.props.onAdd(formData);
 					<input type="text" name="photo"/>
 				</label>
 				</div>
-			<button>Add New User</button>
+
+				<div className="btn">
+					<button>Done</button>
+				</div>
 			</SimpleSerialForm>
 			</div>
 			)
