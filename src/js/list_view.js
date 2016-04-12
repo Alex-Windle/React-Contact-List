@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import users from './data';
-import { Link, hashHistory } from 'react-router';
+import { Route, Router, Link, hashHistory } from 'react-router';
 
 export default class ListView extends Component {
 	// static propTypes = {
@@ -22,9 +22,18 @@ export default class ListView extends Component {
 	personListItem(person){
 		// let { photo, onUserSelect } = this.props;
 		return (
-			<Link to="/single-view"><li>{person.name}<img src={person.photo} alt="headshot" height="50px"/></li></Link>
+			<li  key={person.name}>
+				<Link to={`/single-view/${person.name}`}>
+					{person.name}
+					<img src={person.photo} alt="headshot" height="50px"/>
+				</Link>
+			</li>
 		)
 	};
+
+	// <Link to={`/single-view/${ user.name }`}>{user.name}</Link>
+
+
 		// <li key={person.name} onClick={onUserSelect.bind(0, person)}>
 		// 	<img src={person.photo} alt="headshot" height="50px"/>
 		// 	{person.name}
@@ -36,11 +45,6 @@ export default class ListView extends Component {
 		// let { users, onUserSelect, onNew } = this.props;
 		return (
 		<div className="list-view">
-			
-			<div className="title">
-				<h2>My Contact List</h2>
-				<Link to="/add-user"> ADD </Link>
-			</div>
 
 			<div className="fullContactList">
 				<ul>

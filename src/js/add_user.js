@@ -16,8 +16,10 @@ export default class AddUser extends Component {
  //    	}
 	// }
 
-dataHandler(formData) {
-this.props.onAdd(formData);
+dataHandler(data) {
+this.props.onAdd(data);//this noooooooo good
+users.push(data);//class+++
+hashHistory.push('/');//class+++
 }
 
 // dropHandler([file]) {
@@ -28,7 +30,6 @@ this.props.onAdd(formData);
 		return (
 			<div className="add-user">
 			<div className="title">
-				<h2>Add Contact</h2>
 			</div>
 			
 			<SimpleSerialForm onData={ x => x }>
@@ -73,9 +74,6 @@ this.props.onAdd(formData);
 				</div>
 
 			</SimpleSerialForm>
-			
-			<Link to="/">BACK</Link>
-
 			</div>
 		)
 	}

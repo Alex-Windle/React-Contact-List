@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
-import data from './data';
-import { Link, hashHistory } from 'react-router';
+import users from './data';
+import { Route, Router, Link, hashHistory } from 'react-router';
 
 //build a list view component
 
@@ -21,13 +21,13 @@ export default class SingleView extends Component {
 	// };
 
 	render () {
-	let user = data[0];
-		
+	let { user_details } = this.props.params;
+	let user = users.find(currentUser => currentUser.name === user_details);
+	
 		return (
 			
 			<div className="single-view">
 				<div className="avatar">
-					<Link to="/"> BACK </Link>
 					<img src={ user.photo } alt="profile pic" height="100px"/>
 				</div>
 				
