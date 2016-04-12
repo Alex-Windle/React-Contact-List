@@ -1,52 +1,42 @@
 // Javascript Entry Point
 import data from './data';
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
 import SingleView from './single_view';
 import ListView from './list_view';
 import AddUser from './add_user';
+import { Router, Route, hashHistory } from 'react-router';
 
-//////////////// Contact List (2pg)
-var fullListPage = () =>{ ReactDOM.render(
-		<ListView users={ data } onUserSelect= { singleUserPage } onNew= { renderForm }/>
-		, document.querySelector('.app')
-	);
-};
+render((
+  <Router history={hashHistory}>
+    <Route path="/" component={ListView}/>
+    <Route path="/add-user" component={AddUser}/>
+    <Route path="/single-view" component={SingleView}/>
+  </Router>
+), document.querySelector('.app'));
 
-var singleUserPage = (singlePerson)=>{	ReactDOM.render(
-		<SingleView user={ singlePerson } onBack= { fullListPage }/>
-		, document.querySelector('.app')
-	);
-}
+// var fullListPage = () =>{ ReactDOM.render(
+// 		<ListView users={ data } onUserSelect= { singleUserPage } onNew= { renderForm }/>
+// 		, document.querySelector('.app')
+// 	);
+// };
 
-////////////// Form view
-function addItemAndRenderList(newItem) {
-	data.push(newItem);
-	fullListPage();
-}
+// var singleUserPage = (singlePerson)=>{	ReactDOM.render(
+// 		<SingleView user={ singlePerson } onBack= { fullListPage }/>
+// 		, document.querySelector('.app')
+// 	);
+// }
 
-function renderForm(){
-	ReactDOM.render(
-	<AddUser onAdd={ addItemAndRenderList }/>
-	,document.querySelector('.app')
-	) 
-}
+// function addItemAndRenderList(newItem) {
+// 	data.push(newItem);
+// 	fullListPage();
+// }
 
-fullListPage();
+// function renderForm(){
+// 	ReactDOM.render(
+// 	<AddUser onAdd={ addItemAndRenderList }/>
+// 	,document.querySelector('.app')
+// 	) 
+// }
 
-////////////// Scratch
-// singleUserPage(tempUser);
 // fullListPage();
-
-// user={user.name} onBack={function}
-// var tempUser = {
-// 	name: "TEST Bay",
-// 	email: "cTESTbeybey@gmail.com",
-// 	phone: "123-537-7891", 
-// 	location: "Luanda, Angola",
-// 	photo: "http://fillmurray.com/50/50"
-// }
-
-// var tempOnBack = function() {
-// 	console.log("fake function works!");
-// }
