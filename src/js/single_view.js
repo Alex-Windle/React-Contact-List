@@ -2,28 +2,28 @@ import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import users from './data';
 import { Route, Router, Link, hashHistory } from 'react-router';
-
-//build a list view component
+import { ajax } from 'jquery'; 
 
 export default class SingleView extends Component {
+constructor(...props) {
+	super(...props);
+	this.state = { user: {} }; //{peanut butter: {}};
+}
+//re render with new user
+// make re render happen by setting new state in this function
+	componentWillMount(){
+		let { user_id } = this.props.params;
+		ajax(`http://10.0.0.24:8026/data/{user_id}`).then(user =>{
+			this.setState({user: user}); //this.setState({peanut butter: user});
+		})
+	}
 
-	// static propTypes = {
-	// user: PropTypes.shape ({
-	// 	name: PropTypes.string.isRequired,
-	// 	email: PropTypes.string.isRequired,
-	// 	phone: PropTypes.string.isRequired,
-	// 	location: PropTypes.string.isRequired, 
-	// 	photo: PropTypes.string.isRequired,
-	// 	type: PropTypes.string.isRequired
-	// }).isRequired,
-
-	// onBack: PropTypes.func.isRequired
-	// };
-
+//will re render if it gets new props or state
 	render () {
-	let { user_details } = this.props.params;
-	let user = users.find(currentUser => currentUser.name === user_details);
-	
+	//let { user_details } = this.props.params;
+	//let user = users.find(currentUser => currentUser.name === user_details);
+	let { user } = this.state; 
+
 		return (
 			
 			<div className="single-view">
@@ -41,30 +41,7 @@ export default class SingleView extends Component {
 				</div>
 			</div>
 			)
+	}
 
 	}
 };
-
-// 	render () {
-// 		let { user, onBack } = this.props;
-// 		return (
-			
-// 			<div className="single-view">
-// 				<div className="avatar">
-// 					<i className="fa fa-arrow-left" onClick={ onBack }></i>
-// 					<img src={ user.photo } alt="profile pic" height="100px"/>
-// 				</div>
-				
-// 				<div className="info">
-// 					 <ul>
-// 					 	<li><i className="fa fa-user"></i>{user.name}</li>
-// 					 	<li><i className="fa fa-envelope"></i>{user.email}</li>
-// 						<li><i className="fa fa-mobile"></i>{user.phone}</li>
-// 						<li><i className="fa fa-globe"></i>{user.location}</li>
-// 					 </ul>
-// 				</div>
-// 			</div>
-// 			)
-
-// 	}
-// };

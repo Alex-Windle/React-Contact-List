@@ -1,54 +1,40 @@
 import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
-import users from './data';
 import { Route, Router, Link, hashHistory } from 'react-router';
+import { ajax } from 'jquery';
+
+//ajax request to pull data from an api ?
+//state allows the data to change on the page ?  
 
 export default class ListView extends Component {
-	// static propTypes = {
-	// users: PropTypes.arrayOf(
-	// 	PropTypes.shape({
-	// 	name: PropTypes.string.isRequired,
-	// 	email: PropTypes.string.isRequired,
-	// 	phone: PropTypes.string.isRequired,
-	// 	location: PropTypes.string.isRequired, 
-	// 	photo: PropTypes.string.isRequired
-	// })).isRequired,
+constructor(...args) {
+	super(...args);
+	this.state = { users: []};
+}
 
-	// onUserSelect: PropTypes.func.isRequired,
-
-	// onNew: PropTypes.func.isRequired
-	// };
-
+componentWillMount(){
+	ajax('http://10.0.0.24:8026/data').then(users=> 
+	this.setState({users});	)
+}
 	personListItem(person){
-		// let { photo, onUserSelect } = this.props;
 		return (
-			<li  key={person.name}>
+			<li  key={person._id}>
 				<Link to={`/single-view/${person.name}`}>
-					{person.name}
-					<img src={person.photo} alt="headshot" height="50px"/>
+				{person.name}
+				<img src={person.photo} alt="headshot" height="50px"/>
 				</Link>
 			</li>
 		)
 	};
 
-	// <Link to={`/single-view/${ user.name }`}>{user.name}</Link>
-
-
-		// <li key={person.name} onClick={onUserSelect.bind(0, person)}>
-		// 	<img src={person.photo} alt="headshot" height="50px"/>
-		// 	{person.name}
-		// </li>
-		// )
-	// }
-
 	render() {
-		// let { users, onUserSelect, onNew } = this.props;
+		let { users } = this.state;
 		return (
 		<div className="list-view">
 
 			<div className="fullContactList">
 				<ul>
-					{ users.map(::this.personListItem) }
+				{ users.map(::this.personListItem) }
 				</ul>
 			</div>
 
@@ -56,22 +42,3 @@ export default class ListView extends Component {
 		)
 	}
 }
-// let { users, onUserSelect, onNew } = this.props;
-// 		return (
-// 		<div className="list-view">
-// 			<div className="title">
-// 				<h2>My Contact List</h2>
-// 				<button onClick={ onNew }>+ Add</button>
-// 			</div>
-// 			<div className="fullContactList">
-// 				<ul>
-// 					{ users.map(::this.personListItem) }
-// 				</ul>
-// 			</div>
-// 		</div>
-// 		)
-
-
-
-
-

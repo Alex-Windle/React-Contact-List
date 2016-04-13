@@ -23,7 +23,7 @@ render((
     <Route path="/" component={Heading}>
       <IndexRoute component={ListView}/>
       <Route path="/add-user" component={AddUser}/>
-      <Route path="/single-view/:user_details" component={SingleView}/>
+      <Route path="/single-view/:user_id" component={SingleView}/>
     </Route>
   </Router>
 ), document.querySelector('.app'))
