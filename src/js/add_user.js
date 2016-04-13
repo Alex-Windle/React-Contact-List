@@ -4,27 +4,25 @@ import Dropzone from 'react-dropzone';
 import ReactDOM from 'react-dom';
 import data from './data';
 import { Link, hashHistory } from 'react-router';
+import { ajax } from 'jquery';
 
 export default class AddUser extends Component {
-	// static propTypes = {
-	// 	onAdd: PropTypes.func.isRequired
-	// 	}
-	// constructor(props){
-	// 	super(props);
-	// 	this.state = {
- //      	preview: 'https://bytesizemoments.com/wp-content/uploads/2014/04/placeholder.png'
- //    	}
-	// }
 
 dataHandler(data) {
-this.props.onAdd(data);//this noooooooo good
-users.push(data);//class+++
-hashHistory.push('/');//class+++
-}
+//this.props.onAdd(data);//this noooooooo good
+//users.push(data);//class+++
+//hashHistory.push('/');//class+++
+ajax({
+	url: 'http://10.0.0.24:8026/data';
+	type: 'POST';
+	data,
 
-// dropHandler([file]) {
-//     this.setState({preview: file.preview});
-//   }
+
+}).then( ()=> {
+	hasHistory.push('/');
+}
+)
+}
 	render () {
 		// let { onAdd } = this.props;
 		return (

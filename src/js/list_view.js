@@ -13,9 +13,10 @@ constructor(...args) {
 }
 
 componentWillMount(){
-	ajax('http://10.0.0.24:8026/data').then(users=> 
-	this.setState({users});	)
-}
+	ajax('http://10.0.0.24:8026/data').then(users=> {
+	this.setState({users});	
+	)}
+	
 	personListItem(person){
 		return (
 			<li  key={person._id}>
